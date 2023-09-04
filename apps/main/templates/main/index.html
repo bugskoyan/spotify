@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block body %}
+
+<div class="albums-container container-fluid">
+    <div class="row">
+
+        {% if albums %}
+            {% for album in albums %}
+                <div class="col-sm-4 col-lg-2">
+                    <div class="thumbnail">
+                        <a href="{% url 'detail' album.id %}">
+                            {% if album.logo %}
+                                <img src="{{ album.logo.url }}" class="img-responsive" />
+                            {% else %}
+                                <img src="media/default_cover.png" class="img-responsive" />
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}
