@@ -39,7 +39,7 @@ def post_save_song(
             'mrtamixs@gmail.com'
         ]
         send_email(
-            f'Вы загрузили песню {instance.title}',
+            f'Вы загрузили, песню {instance.title}',
             (
                 f'ID песни: {instance.id} | '
                 f'Длительность: {instance.normalized_duration}'
