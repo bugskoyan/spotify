@@ -10,6 +10,23 @@ from abstracts.models import AbsctractDateTime
 from abstracts.utils import normalize_time
 
 
+class AudioFileType(models.Model):
+    """
+    Модель для хранения типов расширений аудио-файлов.
+    """
+    name: models.CharField = models.CharField(
+        verbose_name='название',
+        max_length=10
+    )
+
+    class Meta:
+        verbose_name = 'тип расширения аудио-файла'
+        verbose_name_plural = 'типы расширений аудио-файлов'
+
+    def __str__(self):
+        return f'Расширение: {self.name}'
+
+
 class Country(models.Model):
     title = models.CharField(
         verbose_name='название',
@@ -173,8 +190,9 @@ class Song(models.Model):
     )
     album = models.ForeignKey(
         to=Album,
+        on_delete=models.CASCADE,
         verbose_name='альбом',
-        on_delete=models.CASCADE
+        related_name='songs'
     )
     audio_file = models.FileField(
         verbose_name='аудио файл',

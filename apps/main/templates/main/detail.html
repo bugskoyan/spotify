@@ -52,7 +52,7 @@
                         </thead>
 
                         <tbody>
-                            {% for song in album.song_set.all %}
+                            {% for song in album.songs.all %}
                                 <tr>
                                     <td>{{ song.title }}</td>
                                     <td>

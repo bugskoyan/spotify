@@ -11,7 +11,8 @@ from .models import (
     Band,
     Country,
     Genre,
-    Song
+    Song,
+    AudioFileType
 )
 
 
@@ -79,4 +80,9 @@ class SongAdmin(admin.ModelAdmin):
 
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(AudioFileType)
+class AudioFileAdmin(admin.ModelAdmin):
     pass

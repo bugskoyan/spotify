@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+{% block title %}Add a New Album{% endblock %}
+{% block albums_active %}active{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Add a New Album</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'main/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Добавить</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Какого формата загружать лого альбома ?</h3>
+                    <ul>
+                        <li>Иметь разрешение 512x512</li>
+                        <li>Использовать распространенные форматы изображений, такие как .JPG или .PNG</li>
+                        <li>Сохраняться в пределах лимита в 2 МБ.</li>
+                        <li>Квадратные изображения выглядят лучше всего</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
